@@ -265,4 +265,9 @@ public class CableCar implements Location {
     public synchronized Group leaveLocation(boolean groupShortType) {
         return leaveLocation();
     }
+
+    @Override
+    public int getLocationId() {
+        return -1;
+    }
 }

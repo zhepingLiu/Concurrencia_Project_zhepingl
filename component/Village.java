@@ -25,10 +25,14 @@ public class Village implements Location {
      * @return true if group is short type
      */
     public synchronized boolean isGroupShortType() {
-        if (tourist != null) {
-            return tourist.isShort();
+        while (tourist == null) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        return false;
+        return tourist.isShort();
     }
 
     /**
@@ -110,7 +114,7 @@ public class Village implements Location {
      * @return the group leaving the village
      */
     public synchronized Group leaveLocation(boolean shortType) {
-        if (shortType) {
+        if (!shortType) {
             return leaveLocation();
         } else {
             // wait until this location is occupied
@@ -133,6 +137,11 @@ public class Village implements Location {
             Print.printLeaveVillageExpress(temp.getId(), villageId);
             return temp;
         }
+    }
+
+    @Override
+    public int getLocationId() {
+        return getVillageId();
     }
 
     /**

@@ -13,4 +13,5 @@ public interface Location {
     //Extension task methods
     boolean isGroupShortType();
     Group leaveLocation(boolean groupShortType);
+    int getLocationId();
 }

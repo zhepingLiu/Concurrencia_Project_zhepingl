@@ -47,7 +47,7 @@ public class Train extends Thread {
      */
     public void run() {
         while (!isInterrupted()) {
-            if (current.equals(start)) {
+            if (current.equals(start) && !(start.getLocationId() == 2 && start.isGroupShortType())) {
                 try {
                     // if at the start location, ask group in this
                     // location to leave and take the train

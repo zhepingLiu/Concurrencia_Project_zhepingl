@@ -31,8 +31,8 @@ public class Group {
 
 	//get a new component.Group instance with a unique Id
 	public static Group getNewGroup() {
-	    //EXTENSION : get one short type group every 7 groups
-	    if (nextId % 2 == 0) {
+	    //EXTENSION : get one short type group every 3 groups
+	    if (nextId % 3 == 0) {
 	        return new Group(nextId++, true);
         }
 		return new Group(nextId++);
