@@ -243,26 +243,4 @@ public class CableCar implements Location {
     public String toString() {
         return "Cable car";
     }
-
-    @Override
-    /**
-     * EXTENSION : check if the current group is short type or not
-     * @return true if group is short type
-     */
-    public synchronized boolean isGroupShortType() {
-        if (tourist != null) {
-            return tourist.isShort();
-        }
-        return false;
-    }
-
-    @Override
-    /**
-     * EXTENSION : ask the group in this village to leave
-     * @param shortType indicator if the group is short type
-     * @return the group leaving the village
-     */
-    public synchronized Group leaveLocation(boolean groupShortType) {
-        return leaveLocation();
-    }
 }

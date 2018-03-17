@@ -10,12 +10,8 @@ import java.util.Random;
 
 public class Params {
 
-  //EXTENSION : the number of villages the extension needs
-  public final static int EXTENSION_REQUIREMENT = 8;
-
   //the number of villages
-  //public final static int VILLAGES = 6;
-  public final static int VILLAGES = 8;
+  public final static int VILLAGES = 6;
 
   //the time interval at which main.Main checks threads are alive
   public final static int MAIN_INTERVAL = 50;

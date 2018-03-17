@@ -19,18 +19,6 @@ public class Village implements Location {
     // next location after this village
     private Location nextLocation;
 
-    @Override
-    /**
-     * EXTENSION : check if the current group is short type or not
-     * @return true if group is short type
-     */
-    public synchronized boolean isGroupShortType() {
-        if (tourist != null) {
-            return tourist.isShort();
-        }
-        return false;
-    }
-
     /**
      * Constructor of the Village
      * @param i given id of the village
@@ -102,37 +90,6 @@ public class Village implements Location {
         // Print the message
         Print.printLeaveVillage(temp.getId(), villageId);
         return temp;
-    }
-
-    /**
-     * EXTENSION : ask the group in this village to leave
-     * @param shortType indicator if the group is short type
-     * @return the group leaving the village
-     */
-    public synchronized Group leaveLocation(boolean shortType) {
-        if (shortType) {
-            return leaveLocation();
-        } else {
-            // wait until this location is occupied
-            while (!occupied) {
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            Group temp = tourist;
-            // empty the village
-            tourist = null;
-            occupied = false;
-            // notify all threads that are waiting
-            // on the availability of this village
-            notifyAll();
-            // Print the message
-            Print.printLeaveVillageExpress(temp.getId(), villageId);
-            return temp;
-        }
     }
 
     /**

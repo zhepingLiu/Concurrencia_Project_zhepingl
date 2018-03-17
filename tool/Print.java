@@ -7,15 +7,6 @@ package tool;
  */
 public class Print {
 
-    // Extension : Print messages state groups enter villages taking express
-    public static void printEnterVillageExpress(int groupId, int villageId) {
-        System.out.println("[" + groupId + "] enters village " + villageId + " taking EXPRESS!!!");
-    }
-    // Extension : Print messages state groups leave villages taking express
-    public static void printLeaveVillageExpress(int groupId, int villageId) {
-        System.out.println("[" + groupId + "] leaves village " + villageId + " taking EXPRESS!!!");
-    }
-
     // Print messages state groups enter villages
     public static void printEnterVillage(int groupId, int villageId) {
         System.out.println("[" + groupId + "] enters village " + villageId);

@@ -1,5 +1,4 @@
 package main;
-import extension.ExpressTrain;
 import tool.*;
 import component.*;
 
@@ -48,29 +47,14 @@ public class Main {
 		Consumer consumer = new Consumer(cableCar);
 		Operator operator = new Operator(cableCar);
 
-		Train[] train;
+		// create an array trains to hold the trains
+		Train[] train = new Train[n - 1];
 
-		if (n >= Params.EXTENSION_REQUIREMENT) {
-            //EXTENSION : hold one more express train in this array
-            train = new Train[n];
-
-            for (int i = 0; i < n - 1; i++) {
-                train[i] = new Train(village[i], village[i + 1]);
-                train[i].start();
-            }
-            //EXTENSION : create the express train between n/4 and 3n/4 villages
-            train[n-1] = new ExpressTrain(village[n/4], village[3*n/4]);
-            train[n-1].start();
-        } else {
-            // create an array trains to hold the trains
-            train = new Train[n - 1];
-
-            // generate the individual trains
-            for (int i = 0; i < n - 1; i++) {
-                train[i] = new Train(village[i], village[i + 1]);
-                train[i].start();
-            }
-        }
+		// generate the individual trains
+		for (int i = 0; i < n - 1; i++) {
+			train[i] = new Train(village[i], village[i + 1]);
+			train[i].start();
+		}
 
 		// generate trains that pick up and deliver to the cable car terminus
 		Train firstTrain = new Train(cableCar, village[0]);

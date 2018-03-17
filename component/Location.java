@@ -9,8 +9,4 @@ public interface Location {
     Group leaveLocation();
     boolean isOccupied();
     String toString();
-
-    //Extension task methods
-    boolean isGroupShortType();
-    Group leaveLocation(boolean groupShortType);
 }
