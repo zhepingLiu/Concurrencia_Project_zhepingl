@@ -1,5 +1,4 @@
 package component;
-import tool.Params;
 import tool.Print;
 
 /**
@@ -49,11 +48,12 @@ public class Village implements Location {
      * Assign the next location after the village
      * @param nextLocation the next location after the village
      */
-    public void setNextLocation(Location nextLocation) {
+    public synchronized void setNextLocation(Location nextLocation) {
         this.nextLocation = nextLocation;
     }
 
-    public synchronized int getVillageId() {
+    @Override
+    public synchronized int getLocationId() {
         return villageId;
     }
 
@@ -137,11 +137,6 @@ public class Village implements Location {
             Print.printLeaveVillageExpress(temp.getId(), villageId);
             return temp;
         }
-    }
-
-    @Override
-    public int getLocationId() {
-        return getVillageId();
     }
 
     /**
