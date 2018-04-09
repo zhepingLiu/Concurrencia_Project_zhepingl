@@ -1,5 +1,7 @@
 package component;
 
+import tool.Params;
+
 /**
  * A group of tourists, each with its unique id, who travel 
  * between the villages by train.
@@ -13,6 +15,8 @@ public class Group {
 	protected int id;
 	//the next ID to be allocated
 	protected static int nextId = 1;
+
+	//EXTENSION : random number of short type group
 
 	//EXTENSION : indicator of being short type
 	private boolean shortType;
@@ -31,8 +35,8 @@ public class Group {
 
 	//get a new component.Group instance with a unique Id
 	public static Group getNewGroup() {
-	    //EXTENSION : get one short type group every 3 groups
-	    if (nextId % 3 == 0) {
+	    //EXTENSION : get one short type group every 3 groups created
+	    if (Params.createShortType()) {
 	        return new Group(nextId++, true);
         }
 		return new Group(nextId++);

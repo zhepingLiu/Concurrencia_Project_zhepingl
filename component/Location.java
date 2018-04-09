@@ -10,7 +10,7 @@ public interface Location {
     boolean isOccupied();
     String toString();
 
-    //Extension task methods
+    // Methods for extension task
     boolean isGroupShortType();
     Group leaveLocation(boolean groupShortType);
     int getLocationId();

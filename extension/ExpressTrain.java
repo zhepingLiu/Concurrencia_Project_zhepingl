@@ -1,5 +1,4 @@
 package extension;
-
 import component.Group;
 import component.Location;
 import component.Train;
@@ -7,6 +6,8 @@ import tool.Params;
 
 /**
  * Express train between k/4 and 3k/4 villages in the Extension task 1.
+ *
+ * @author Zheping Liu, 683781, zhepingl@student.unimelb.edu.au
  */
 public class ExpressTrain extends Train {
 
@@ -39,6 +40,8 @@ public class ExpressTrain extends Train {
      */
     public void run() {
         while (!isInterrupted()) {
+            // run the express train only when train is at start location
+            // and the group in the start location is short type
             if (current.equals(start) && start.isGroupShortType()) {
                 try {
                     synchronized (destination) {

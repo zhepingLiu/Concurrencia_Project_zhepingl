@@ -47,10 +47,12 @@ public class Train extends Thread {
      */
     public void run() {
         while (!isInterrupted()) {
-            if (current.equals(start) && !(start.getLocationId() == 2 && start.isGroupShortType())) {
+            if (current.equals(start) && !(start.getLocationId()
+                    == Params.VILLAGES/4 && start.isGroupShortType())) {
                 try {
-                    // if at the start location, ask group in this
-                    // location to leave and take the train
+                    // if at the start location, and this group is full type
+                    // group, ask group in this location to leave and take the
+                    // train
                     tourist = start.leaveLocation();
 
                     // occupy the train

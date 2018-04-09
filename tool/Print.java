@@ -9,11 +9,13 @@ public class Print {
 
     // Extension : Print messages state groups enter villages taking express
     public static void printEnterVillageExpress(int groupId, int villageId) {
-        System.out.println("[" + groupId + "] enters village " + villageId + " taking EXPRESS!!!");
+        System.out.println("[" + groupId + "] enters village " +
+                            villageId + " taking express train");
     }
     // Extension : Print messages state groups leave villages taking express
     public static void printLeaveVillageExpress(int groupId, int villageId) {
-        System.out.println("[" + groupId + "] leaves village " + villageId + " taking EXPRESS!!!");
+        System.out.println("[" + groupId + "] leaves village " +
+                            villageId + " taking express train");
     }
 
     // Print messages state groups enter villages

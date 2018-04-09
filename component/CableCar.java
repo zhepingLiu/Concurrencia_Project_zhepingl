@@ -10,6 +10,8 @@ import tool.Print;
  */
 public class CableCar implements Location {
 
+    // EXTENSION : the id of cable car location
+    private static final int CABLE_CAR_ID = -1;
     // static instance of this class
     private static CableCar cableCar;
     // indicator of being occupied
@@ -47,10 +49,18 @@ public class CableCar implements Location {
         return cableCar;
     }
 
+    /**
+     * Getter of current location of cable car
+     * @return current location of cable car
+     */
     public synchronized currentLocation getCurrent() {
         return current;
     }
 
+    /**
+     * Getter of current group on the cable car
+     * @return current group on the cable car
+     */
     public synchronized Group getTourist() {
         return tourist;
     }
@@ -258,7 +268,10 @@ public class CableCar implements Location {
 
     @Override
     /**
-     * EXTENSION : ask the group in this village to leave
+     * EXTENSION : ask the group in this village to leave.
+     * Since cable car will not be connected to any express train
+     * the leaveLocation function for short type group is the same
+     * as the normal type
      * @param shortType indicator if the group is short type
      * @return the group leaving the village
      */
@@ -268,6 +281,6 @@ public class CableCar implements Location {
 
     @Override
     public int getLocationId() {
-        return -1;
+        return CABLE_CAR_ID;
     }
 }

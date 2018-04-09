@@ -53,10 +53,18 @@ public class Village implements Location {
     }
 
     @Override
+    /**
+     * Getter for the villageId
+     * @return the village id
+     */
     public synchronized int getLocationId() {
         return villageId;
     }
 
+    /**
+     * Getter for the current group in the location
+     * @return the current group in the location
+     */
     public synchronized Group getTourist() {
         return tourist;
     }
